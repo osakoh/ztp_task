@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}| Detail{% endblock title %}
+
+{% block content %}
+    <div class="container">
+
+        <!-- messages -->
+        <!-- show message -->
+        {% include 'partials/messages.html' %}
+        <!-- show message -->
+
+        <!-- error reference -->
+        <div id="after"></div>
+        <!-- error reference -->
+        <!-- messages -->
+
+        <div class="row">
+            {% if customer_ratings %}
+                <!-- ratings table -->
+                <div class="table-responsive mt-5">
+                    <p class="lead">Consumption for {{ customer.name }}</p>
+
+                    <table class="table table-sm table-hover table-bordered text-center">
+                        <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Rate Name</th>
+                            <th scope="col">1st Reading (kWh)</th>
+                            <th scope="col">2nd Reading (kWh)</th>
+                            <th scope="col">Energy Consumption</th>
+                            <th scope="col">Cost</th>
+                        </tr>
+                        </thead>
+
+                        <!-- Rows -->
+                        {% for rating in customer_ratings %}
+                            <tbody>
+                            <tr>
+                                <td>{{ rating.rate }}</td>
+                                <td>{{ rating.first }}</td>
+                                <td>{{ rating.second }}</td>
+
+                                <td>{{ rating.energy_consumption }}</td>
+                                <td>{{ rating.cal_cost }}</td>
+                            </tr>
+                            </tbody>
+                        {% endfor %}
+                        <!-- Rows -->
+                    </table>
+                </div>
+                </div>
+                <!-- ratings table -->
+            {% else %}
+                <p class="container shadow-sm text-center text-info mt-5 col-md-10">No rating(s) added.</p>
+            {% endif %}
+
+    </div>
+
+    <!-- links -->
+    <div class="container">
+        <!-- link to home link -->
+        <a class="btn btn-sm btn-dark mb-2" href="{% url 'energy:home_view' %}" role="button">Back</a>
+        <!-- link to home link -->
+    </div>
+    <!-- links -->
+
+{% endblock %}

@@ -1,0 +1,37 @@
+<div class="row">
+    <form method="POST" id="silo-form" action="{% url 'silo:create_silo' %}">
+        {% csrf_token %}
+        <div class="silo-forms mb-3">
+            <!-- x input -->
+            <div class="mb-2">
+                <label for="x" class="form-label">X Position(in m)</label>
+                <input name="x" class="form-control" type="number" id="x" step="1e-10">
+                <span class="x-error"></span>
+            </div>
+            <!-- x input -->
+
+            <!-- y input -->
+            <div class="mb-2">
+                <label for="y" class="form-label">Y Position(in m)</label>
+                <input name="y" class="form-control" type="number" id="y" step="1e-10">
+                <span class="y-error"></span>
+            </div>
+            <!-- y input -->
+
+            <!-- temperature input -->
+            <div class="mb-2">
+                <label for="temperature" class="form-label">Temperature (°C)</label>
+                <input name="temperature" class="form-control" type="number" id="temperature" step="1e-10">
+                <span class="temperature-error"></span>
+            </div>
+            <!-- temperature input -->
+        </div>
+
+        <!-- submit button -->
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit" id="add-button">Add</button>
+        </div>
+        <!-- submit button -->
+
+    </form>
+</div>

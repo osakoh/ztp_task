@@ -1,0 +1,170 @@
+<div class="container">
+    <ul class="nav nav-pills mb-2" id="myTab" role="tabnight">
+        <!-- Highest Day Rate button -->
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="day-tab" data-bs-toggle="tab" data-bs-target="#day"
+                    type="button"
+                    role="tab" aria-controls="day" aria-selected="true">
+                Highest Day Rate Consumption
+            </button>
+        </li>
+        <!-- Highest Day Rate button -->
+
+        <!-- Highest Night Rate button -->
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="night-tab" data-bs-toggle="tab" data-bs-target="#night"
+                    type="button"
+                    role="tab" aria-controls="night" aria-selected="false">
+                Highest Night Rate Consumption
+            </button>
+        </li>
+        <!-- Highest Night Rate button -->
+
+
+        <!-- Total Energy Cost button -->
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="cost-tab" data-bs-toggle="tab" data-bs-target="#cost"
+                    type="button"
+                    role="tab" aria-controls="cost" aria-selected="false">
+                Total Energy Cost
+            </button>
+        </li>
+        <!-- Total Energy Cost button -->
+    </ul>
+
+    <!-- content -->
+    <div class="tab-content" id="myTabContent">
+        <!-- Highest Day Rate content -->
+        <div class="tab-pane fade show active" id="day" role="tabpanel" aria-labelledby="day-tab">
+            <!-- day rate cost -->
+            <div class="row">
+                {% if day_rate %}
+                    <!-- table -->
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover table-bordered text-center">
+                            <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Day Rate(Total Cost)</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Meter Number</th>
+                            </tr>
+                            </thead>
+
+                            <!-- Rows -->
+                            {% for customer in day_rate %}
+                                <tbody>
+                                <tr>
+                                    <td class="text-success">{{ customer.total_cost }}</td>
+                                    <td>
+                                        <a class="text-decoration-none text-black" href="{{ customer.get_details }}">
+                                            {{ customer.name }}&nbsp;<i class="fas fa-link text-primary"></i>
+                                        </a>
+                                    </td>
+                                    <td>{{ customer.address }}</td>
+                                    <td>{{ customer.number }}</td>
+                                </tr>
+                                </tbody>
+                            {% endfor %}
+                            <!-- Rows -->
+
+                        </table>
+                    </div>
+                    <!-- table -->
+                {% else %}
+                    <p class="container shadow-sm text-center text-info mt-5 col-md-10">No data added yet.</p>
+                {% endif %}
+            </div>
+            <!-- day rate cost -->
+        </div>
+        <!-- Highest Day Rate content -->
+
+        <!-- Highest Night Rate content -->
+        <div class="tab-pane fade" id="night" role="tabpanel" aria-labelledby="night-tab">
+            <!-- night rate cost -->
+            {% if night_rate %}
+                <!-- table -->
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover table-bordered text-center">
+                        <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Night Rate(Total Cost)</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Meter Number</th>
+                        </tr>
+                        </thead>
+
+                        <!-- Rows -->
+                        {% for customer in night_rate %}
+                            <tbody>
+                            <tr>
+                                <td class="text-success">{{ customer.total_cost }}</td>
+                                <td>
+                                    <a class="text-decoration-none text-black" href="{{ customer.get_details }}">
+                                        {{ customer.name }}&nbsp;<i class="fas fa-link text-primary"></i>
+                                    </a>
+                                </td>
+                                <td>{{ customer.address }}</td>
+                                <td>{{ customer.number }}</td>
+                            </tr>
+                            </tbody>
+                        {% endfor %}
+                        <!-- Rows -->
+
+                    </table>
+                </div>
+                </div>
+                <!-- table -->
+            {% else %}
+                <p class="container shadow-sm text-center text-info mt-5 col-md-10">No data added yet.</p>
+            {% endif %}
+        <!-- Highest Night Rate content -->
+
+
+        <!-- Total Energy Cost content -->
+        <div class="tab-pane fade" id="cost" role="tabpanel" aria-labelledby="cost-tab">
+            {% if high_cost %}
+                <!-- table -->
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover table-bordered text-center">
+                        <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Highest Total Cost</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Meter Number</th>
+                        </tr>
+                        </thead>
+
+                        <!-- Rows -->
+                        {% for customer in high_cost %}
+                            <tbody>
+                            <tr>
+                                <td class="text-success">{{ customer.total_cost }}</td>
+                                <td>
+                                    <a class="text-decoration-none text-black" href="{{ customer.get_details }}">
+                                        {{ customer.name }}&nbsp;<i class="fas fa-link text-primary"></i>
+                                    </a>
+                                </td>
+                                <td>{{ customer.address }}</td>
+                                <td>{{ customer.number }}</td>
+                            </tr>
+                            </tbody>
+                        {% endfor %}
+                        <!-- Rows -->
+
+                    </table>
+                </div>
+                </div>
+                <!-- table -->
+            {% else %}
+                <p class="container shadow-sm text-center text-info mt-5 col-md-10">No data added yet.</p>
+            {% endif %}
+    </div>
+    <!-- Total Energy Cost content -->
+</div>
+
+</div>
+<!-- content -->
+

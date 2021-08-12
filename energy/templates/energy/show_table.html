@@ -1,0 +1,39 @@
+{% if customers %}
+    <!-- ratings table -->
+    <div class="table-responsive mt-5">
+        <p class="lead">All Customers</p>
+
+        <table class="table table-sm table-hover table-bordered text-center">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Meter Number</th>
+            </tr>
+            </thead>
+
+            <!-- Rows -->
+            {% for customer in customers %}
+                <tbody>
+                <tr>
+                    <td>
+                        <a class="text-decoration-none text-black" href="{{ customer.get_details }}">
+                            {{ customer.name }}&nbsp;<i class="fas fa-link text-primary"></i>
+                        </a>
+                    </td>
+                    <td>{{ customer.address }}</td>
+                    <td>{{ customer.number }}</td>
+                </tr>
+                </tbody>
+            {% endfor %}
+            <!-- Rows -->
+
+        </table>
+    </div>
+    </div>
+    <!-- ratings table -->
+{% else %}
+    <p class="container shadow-sm text-center text-info mt-5 col-md-10">No data added yet.</p>
+{% endif %}
+
+

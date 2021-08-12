@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+<!-- this page is used for CREATING and UPDATING -->
+
+{% block title %}New Data{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-11 col-lg-9 col-xl-8 mx-auto">
+                <div class="card mt-5">
+                    <div class="card-body shadow">
+                        <h3 class="card-title text-center">Add new entry</h3>
+                        <form method="post">
+                            {{ form.as_p }}
+                            {% csrf_token %}
+
+                            <!-- submit -->
+                            <input type="submit" value="Add" class="btn btn-secondary btn-sm btn-block mb-2">
+                            <!-- submit  -->
+
+                            <!-- back to home page -->
+                            <a href="" class="btn btn-info btn-sm btn-dark btn-block mb-2">
+                                Home
+                            </a>
+                            <!-- back to home page -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

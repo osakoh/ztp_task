@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}| Energy{% endblock title %}
+
+{% block content %}
+    <div class="container">
+
+
+        <!-- show message -->
+        {% include 'partials/messages.html' %}
+        <!-- show message -->
+
+        <!-- upload workbook -->
+        <div class="row">
+            <!-- upload workbook form -->
+            {% include 'energy/workbook_upload.html' %}
+            <!-- upload workbook form -->
+        </div>
+        <!-- upload workbook -->
+
+        <!-- show table -->
+        <div class="row">
+            <!-- table -->
+            {% include 'energy/show_table.html' %}
+            <!-- table -->
+        </div>
+        <!-- show table -->
+
+        <!-- show table -->
+        <div class="row mt-3">
+            <!-- table -->
+            {% include 'energy/task.html' %}
+            <!-- table -->
+        </div>
+        <!-- show table -->
+
+    </div>
+{% endblock %}
